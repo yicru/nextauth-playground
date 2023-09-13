@@ -1,7 +1,6 @@
 'use client'
 
-import { useSession, signIn, signOut } from 'next-auth/react'
-import { Button } from '@/app/_components/Button'
+import { useSession } from 'next-auth/react'
 
 export default function Home() {
   const session = useSession()
@@ -11,11 +10,6 @@ export default function Home() {
       <pre className={'bg-gray-100 px-3 py-2 rounded'}>
         <code>{JSON.stringify(session, null, 2)}</code>
       </pre>
-
-      <div className={'mt-4 space-x-4'}>
-        <Button onClick={() => signIn('github')}>Sign in with GitHub</Button>
-        <Button onClick={() => signOut()}>Sign out</Button>
-      </div>
     </div>
   )
 }

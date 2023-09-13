@@ -1,16 +1,10 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
 
 export default function DashboardPage() {
-  const router = useRouter()
-
   const { status } = useSession({
     required: true,
-    onUnauthenticated() {
-      router.replace('/')
-    },
   })
 
   if (status === 'loading') {
